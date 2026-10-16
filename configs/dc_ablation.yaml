@@ -1,0 +1,18 @@
+# Domain-classifier ablation: what breaks when the classifier is degraded.
+#
+# Six conditions per overlap level: clean, self-OOF, uncalibrated, and three
+# levels of ad-feature masking ending at a policy-agnostic representation.
+# 50 seeds x 7 ESS targets x 6 conditions = 2100 records.
+#
+# Every condition fits the classifier on the reward model's training fold
+# rather than on the separate classifier fold Table 1 uses, so even the `clean`
+# condition differs slightly from Table 1.
+#
+# The condition named `crossfit` is 5-fold out-of-fold prediction within that
+# fold. It is not the disjoint classifier/reward split the theory assumes.
+
+experiment: dc_ablation
+
+# Impressions per policy used for held-out classifier-quality measurement and
+# for comparing estimated cold-start mass against the oracle's.
+dc_eval_n: 3000
