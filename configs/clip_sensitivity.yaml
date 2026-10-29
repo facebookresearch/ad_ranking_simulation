@@ -1,0 +1,18 @@
+# Sensitivity to importance-weight clipping.
+#
+# Clipping is the one free parameter in the weighting scheme and it is a
+# bias-variance dial: unclipped, a rarely-served impression carries unbounded
+# weight; clipped hard, the weights flatten toward uniform and the weighted
+# model collapses onto the unweighted one.
+#
+# Only the clip varies. Within an overlap level the classifier and the
+# unweighted reward model are each fitted once and reused, so nothing but the
+# weighting differs across clip values.
+#
+# 50 seeds x 7 ESS targets x 5 clips = 1750 records.
+
+experiment: clip_sweep
+
+# The swept axis. 100 is effectively no clip at this scale, so the sweep spans
+# from heavy flattening to none.
+clip_values: [1.0, 5.0, 10.0, 20.0, 100.0]

@@ -1,0 +1,12 @@
+# Main synthetic experiment: estimator comparison across overlap regimes.
+#
+# Reproduces Table 1 and, from the same records, the four appendix tables:
+# per-ESS-bin accuracy, regret, and value MAE, plus per-candidate value error.
+# 50 seeds x 7 ESS targets = 350 records.
+#
+# This file states nothing but the experiment type, on purpose. Every value it
+# would otherwise carry is the shared default in `adsim/config.py`, and this
+# experiment sweeps no axis of its own. A key appearing here is a divergence
+# from every other experiment and has to justify itself in a comment.
+
+experiment: trial

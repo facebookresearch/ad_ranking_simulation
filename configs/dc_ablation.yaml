@@ -1,0 +1,14 @@
+# Domain-classifier ablation: what breaks when the classifier is degraded.
+#
+# Five conditions per overlap level: clean, uncalibrated, and three levels of
+# ad-feature masking ending at a policy-agnostic representation.
+# 50 seeds x 7 ESS targets x 5 conditions = 1750 records.
+#
+# Every condition fits the classifier on its own fold, as Table 1 does, so the
+# reward model's weights come from a classifier that never saw its rows.
+
+experiment: dc_ablation
+
+# Impressions per policy used for held-out classifier-quality measurement and
+# for comparing estimated cold-start mass against the oracle's.
+dc_eval_n: 3000
